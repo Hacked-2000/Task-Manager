@@ -3,6 +3,7 @@ import { API_ENDPOINTS } from "../utils/apiEndpoints";
 
 const api = axios.create({
   headers: { "Content-Type": "application/json" },
+  timeout: 60000,
 });
 
 api.interceptors.request.use((config) => {
@@ -30,7 +31,10 @@ export const taskApi = {
 
 export const getErrorMessage = (error) => {
   if (!error?.response) {
-    return "Cannot reach the server. Make sure the backend is running on port 5000.";
+    if (error?.code === "ECONNABORTED") {
+      return "Server is waking up. Wait a moment and try again.";
+    }
+    return "Cannot reach the server. Check your connection or try again in a minute.";
   }
 
   const data = error.response.data;
