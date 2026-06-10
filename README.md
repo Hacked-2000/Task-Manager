@@ -35,6 +35,14 @@ For an app this size, global state is limited to auth session and task list CRUD
 
 ## Setup
 
+### Quick start (recommended)
+
+```bash
+chmod +x setup.sh
+./setup.sh          # install deps + create .env files
+./setup.sh --seed   # same as above + seed sample tasks
+```
+
 ### Prerequisites
 
 - Node.js 18+
