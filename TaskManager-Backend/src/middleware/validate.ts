@@ -20,6 +20,9 @@ export const validate =
       return;
     }
 
-    req[target] = value;
+    if (target === "body") {
+      req.body = value;
+    }
+
     next();
   };

@@ -74,8 +74,10 @@ Frontend runs on `http://localhost:5173`
 **Environment variables** (`TaskManager-Frontend/.env`):
 
 ```
-VITE_API_BASE_URL=http://localhost:5000/api
+VITE_API_BASE_URL=/api
 ```
+
+In dev, Vite proxies `/api` to `http://localhost:5000`.
 
 ## Backend Architecture
 

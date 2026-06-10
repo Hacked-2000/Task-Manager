@@ -29,7 +29,11 @@ export const taskApi = {
 };
 
 export const getErrorMessage = (error) => {
-  const data = error?.response?.data;
+  if (!error?.response) {
+    return "Cannot reach the server. Make sure the backend is running on port 5000.";
+  }
+
+  const data = error.response.data;
   if (data?.errors?.length) return data.errors.join(", ");
   return data?.message || "Something went wrong";
 };
