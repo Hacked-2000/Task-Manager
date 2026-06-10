@@ -74,10 +74,10 @@ Frontend runs on `http://localhost:5173`
 **Environment variables** (`TaskManager-Frontend/.env`):
 
 ```
-VITE_API_BASE_URL=/api
+VITE_API_BASE_URL=https://task-manager-backed-ekvb.onrender.com/api
 ```
 
-In dev, Vite proxies `/api` to `http://localhost:5000`.
+For local dev with a local backend, use `/api` (Vite proxies to `http://localhost:5000`).
 
 ## Backend Architecture
 
